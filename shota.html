@@ -57,7 +57,7 @@ function initialize() {
   var infowindow = new google.maps.InfoWindow({
       content: contentString
   });      
-  google.maps.event.addListener(marker, 'click', function() { 
+  google.maps.event.addListener(marker1, 'click', function() { 
     infowindow.open(map,marker1); //マップの中のMarkerにinfowinを出す
   });  
 }
