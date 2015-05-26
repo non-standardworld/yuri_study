@@ -17,6 +17,14 @@
 function initialize() {
   var myLatlng = new google.maps.LatLng(31.911096,131.423893);//緯度経度クラスに変数をいれる
   var myLatlng1 = new google.maps.LatLng(37.902552,139.023095);//緯度経度クラスに変数をいれる
+  var myLatlng2 = new google.maps.LatLng(34.562704,134.101786);//緯度経度クラスに変数をいれる犬島
+  var myLatlng3 = new google.maps.LatLng(34.459703,133.995689);//緯度経度クラスに変数をいれる直島
+  var myLatlng4 = new google.maps.LatLng(35.179554,129.075642);//緯度経度クラスに変数をいれる釜山
+  var myLatlngArr= [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4]//配列設定
+  for (i=0; i<6; i=i+1){
+	  window.alert();
+}
+
   var mapOptions = {
     zoom: 4,
     center: myLatlng
@@ -35,6 +43,7 @@ function initialize() {
       map: map,
       title: '新潟' //プロパティ
   });
+  
   
   var contentString1 = '<div id="content">'+
       '<div id="siteNotice">'+
