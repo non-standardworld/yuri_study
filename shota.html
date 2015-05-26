@@ -16,6 +16,14 @@
 function initialize() {
   var myLatlng = new google.maps.LatLng(64.133333, -21.933333);
   var myLatlng1 = new google.maps.LatLng(45.415664, 141.673082);  
+  var myLatlng2 = new google.maps.LatLng(13.756331, 100.501765);  
+  var myLatlng3 = new google.maps.LatLng(26.212401, 127.680932);  
+  var myLatlng4 = new google.maps.LatLng(41.385064, 2.173404);  
+  var myLatlngArr = [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4] //配列。varつきは関数の中でしか使えない変数（重複によるコンフリクトを避けられる）
+  for (i=0; i<6; i=i+1) { //iはindexの略。数字は0から数える。
+      window.alert(i); //ウィンドウダイアログを出す。
+  }
+  
   var mapOptions = {
     zoom: 4,
     center: myLatlng
