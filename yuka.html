@@ -21,13 +21,6 @@ function initialize() {
   var myLatlng3 = new google.maps.LatLng(34.459703,133.995689);//緯度経度クラスに変数をいれる直島
   var myLatlng4 = new google.maps.LatLng(35.179554,129.075642);//緯度経度クラスに変数をいれる釜山
   var myLatlngArr= [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4]//配列設定
-  for (i=0; i<6; i=i+1){ //for-loop
-  var marker = new google.maps.Marker({ //マーカーを落とす関数
-      position: myLatlngArr[i],//
-      map: map,
-      title: '宮崎' //プロパティ
-  });
-}
 
   var mapOptions = {
     zoom: 4,
@@ -35,53 +28,63 @@ function initialize() {
   }
   
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);//地図を描いてよね
-
+  
+  //myLatlngArr.length;で配列の数を取得　カウンターに使用するときは-1で
+  
+  for (i=0; i<myLatlngArr.length; i=i+1){ //for-loop
   var marker = new google.maps.Marker({ //マーカーを落とす関数
-      position: myLatlng,//
+      position: myLatlngArr[i],//配列をインデックスごとに呼び出す
       map: map,
       title: '宮崎' //プロパティ
   });
+}
+
+//  var marker = new google.maps.Marker({ //マーカーを落とす関数
+//      position: myLatlng,//
+//      map: map,
+//      title: '宮崎' //プロパティ
+//  });
+//  
+//  var marker1 = new google.maps.Marker({ //マーカーを落とす関数
+//      position: myLatlng1,//
+//      map: map,
+//      title: '新潟' //プロパティ
+//  });
   
-  var marker1 = new google.maps.Marker({ //マーカーを落とす関数
-      position: myLatlng1,//
-      map: map,
-      title: '新潟' //プロパティ
-  });
   
+//  var contentString1 = '<div id="content">'+
+//      '<div id="siteNotice">'+
+//      '</div>'+
+//      '<h1 id="firstHeading" class="firstHeading">新潟</h1>'+
+//      '<div id="bodyContent">'+
+//      '<p>食べ物がおいしかった。</p>'+
+//      '</div>'+
+//      '</div>';
+//	  
+//  var contentString2 = '<div id="content">'+
+//      '<div id="siteNotice">'+
+//      '</div>'+
+//      '<h1 id="firstHeading" class="firstHeading">宮崎</h1>'+
+//      '<div id="bodyContent">'+
+//      '<p>海がきれい</p>'+
+//      '</div>'+
+//      '</div>';
+//	  
+//  var infowindow1 = new google.maps.InfoWindow({ //クリックした時に白いウインドウをだす関数
+//      content: contentString1
+//  });
+//  
+//  var infowindow2 = new google.maps.InfoWindow({ //クリックした時に白いウインドウをだす関数
+//      content: contentString2
+//  });
   
-  var contentString1 = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">新潟</h1>'+
-      '<div id="bodyContent">'+
-      '<p>食べ物がおいしかった。</p>'+
-      '</div>'+
-      '</div>';
-	  
-  var contentString2 = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">宮崎</h1>'+
-      '<div id="bodyContent">'+
-      '<p>海がきれい</p>'+
-      '</div>'+
-      '</div>';
-	  
-  var infowindow1 = new google.maps.InfoWindow({ //クリックした時に白いウインドウをだす関数
-      content: contentString1
-  });
-  
-  var infowindow2 = new google.maps.InfoWindow({ //クリックした時に白いウインドウをだす関数
-      content: contentString2
-  });
-  
-  google.maps.event.addListener(marker1, 'click', function() { //マーカーをクリックした時に白いウインドウをだす関数
-    infowindow1.open(map,marker1);
-  });
-  
-  google.maps.event.addListener(marker, 'click', function() { //マーカーをクリックした時に白いウインドウをだす関数
-    infowindow2.open(map,marker);
-  });
+//  google.maps.event.addListener(marker1, 'click', function() { //マーカーをクリックした時に白いウインドウをだす関数
+//    infowindow1.open(map,marker1);
+//  });
+//  
+//  google.maps.event.addListener(marker, 'click', function() { //マーカーをクリックした時に白いウインドウをだす関数
+//    infowindow2.open(map,marker);
+//  });
 	  
 }//initializeの終わり
 
