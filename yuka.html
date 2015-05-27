@@ -22,7 +22,11 @@ function initialize() {
   var myLatlng4 = new google.maps.LatLng(35.179554,129.075642);//緯度経度クラスに変数をいれる釜山
   var myLatlngArr= [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4]//配列設定
   for (i=0; i<6; i=i+1){ //for-loop
-	  window.alert(i);
+  var marker = new google.maps.Marker({ //マーカーを落とす関数
+      position: myLatlngArr[i],//
+      map: map,
+      title: '宮崎' //プロパティ
+  });
 }
 
   var mapOptions = {
