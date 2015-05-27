@@ -20,25 +20,20 @@ function initialize() {
   var myLatlng3 = new google.maps.LatLng(26.212401, 127.680932);  
   var myLatlng4 = new google.maps.LatLng(41.385064, 2.173404);  
   var myLatlngArr = [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4] //配列。varつきは関数の中でしか使えない変数（重複によるコンフリクトを避けられる）
-  for (i=0; i<6; i=i+1) { //iはindexの略。数字は0から数える。
-      var marker1 = new google.maps.Marker({
-          position: myLatlngArr[i],
-          map: map,
-          title: 'レイキャヴィック'
-      });
-  }
   
   var mapOptions = {
     zoom: 4,
     center: myLatlng
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); //表示する場所
-
-  var marker2 = new google.maps.Marker({
-      position: myLatlng1,
-      map: map,
-      title: '稚内'
-  });
+  
+  for (i=0; i<myLatlngArr.length; i=i+1) { //iはindexの略。数字は0から数える。myLatlngArr.lengthは配列の長さ
+      var marker = new google.maps.Marker({
+          position: myLatlngArr[i],
+          map: map,
+          title: 'レイキャヴィック'
+      });
+  }
   
   //インフォ画面を出す
   var contentString = '<div id="content">'+
@@ -50,22 +45,8 @@ function initialize() {
   var infowindow = new google.maps.InfoWindow({
       content: contentString
   });      
-  google.maps.event.addListener(marker1, 'click', function() { 
-    infowindow.open(map,marker1); //マップの中のMarkerにinfowinを出す
-  });  
-
-  //インフォ画面を出す
-  var contentString1 = '<div id="content">'+
-      '<h1 id="firstHeading" class="firstHeading">感想</h1>'+
-      '<div id="bodyContent">'+
-      '<p>いくら丼が安くて美味い。</p>'+
-      '</div>'+
-      '</div>';
-  var infowindow1 = new google.maps.InfoWindow({
-      content: contentString1
-  });      
-  google.maps.event.addListener(marker2, 'click', function() { 
-    infowindow1.open(map,marker2); //マップの中のMarkerにinfowinを出す
+  google.maps.event.addListener(marker, 'click', function() { 
+    infowindow.open(map,marker); //マップの中のMarkerにinfowinを出す
   });  
 
 }
