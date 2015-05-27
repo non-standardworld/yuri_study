@@ -21,7 +21,11 @@ function initialize() {
   var myLatlng4 = new google.maps.LatLng(41.385064, 2.173404);  
   var myLatlngArr = [myLatlng,myLatlng1,myLatlng2,myLatlng3,myLatlng4] //配列。varつきは関数の中でしか使えない変数（重複によるコンフリクトを避けられる）
   for (i=0; i<6; i=i+1) { //iはindexの略。数字は0から数える。
-      window.alert(i); //ウィンドウダイアログを出す。
+      var marker1 = new google.maps.Marker({
+          position: myLatlngArr[i],
+          map: map,
+          title: 'レイキャヴィック'
+      });
   }
   
   var mapOptions = {
@@ -30,11 +34,6 @@ function initialize() {
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); //表示する場所
 
-  var marker1 = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'レイキャヴィック'
-  });
   var marker2 = new google.maps.Marker({
       position: myLatlng1,
       map: map,
