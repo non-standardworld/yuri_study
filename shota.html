@@ -31,8 +31,13 @@ function initialize() {
       var marker = new google.maps.Marker({
           position: myLatlngArr[i],
           map: map,
-          title: 'レイキャヴィック'
+          //title: 'レイキャヴィック'
       });
+      if(i<2){
+          title: 'Hello'
+      }else{
+          title: 'World'
+      }
   }
   
   //インフォ画面を出す
