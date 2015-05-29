@@ -32,26 +32,65 @@ function initialize() {
   //myLatlngArr.length;で配列の数を取得　カウンターに使用するときは-1で
   
   for (i=0; i<myLatlngArr.length; i=i+1){ //for-loop
-   if(i < 2){ //2回目まではtitleに"Hello"をいれる
-		var marker = new google.maps.Marker({ //マーカーを落とす関数
-			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-			map: map,
-			title: 'Hello' 
-		});
-	   }else if(i==2){ //2本目に"Hello World"
-		var marker = new google.maps.Marker({ //マーカーを落とす関数
-			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-			map: map,
-			title: 'Hello World' 
-		});
-		   }
-	   else{ //それ以外（3回目以降）はtitleに"World"をいれる
-		var marker = new google.maps.Marker({ //マーカーを落とす関数
-			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-			map: map,
-			title: 'World' 
-		});
-	   }
+		switch (i){
+		  case 値1:
+				var marker = new google.maps.Marker({ //マーカーを落とす関数
+				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+				  map: map,
+				  title: '1' 
+			  });
+		  break;
+		  case 値2:
+				var marker = new google.maps.Marker({ //マーカーを落とす関数
+				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+				  map: map,
+				  title: '2' 
+			  });
+		  break;
+		  case 値3:
+				var marker = new google.maps.Marker({ //マーカーを落とす関数
+				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+				  map: map,
+				  title: '3' 
+			  });
+		  break;
+		  case 値4:
+				var marker = new google.maps.Marker({ //マーカーを落とす関数
+				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+				  map: map,
+				  title: '4' 
+			  });
+		  break;
+		  case 値5:
+				var marker = new google.maps.Marker({ //マーカーを落とす関数
+				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+				  map: map,
+				  title: '5' 
+			  });
+		  break;
+		}  
+  
+//   if(i < 2){ //2回目まではtitleに"Hello"をいれる
+//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+//			map: map,
+//			title: 'Hello' 
+//		});
+//	   }else if(i==2){ //2本目に"Hello World"
+//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+//			map: map,
+//			title: 'Hello World' 
+//		});
+//		   }
+//	   else{ //それ以外（3回目以降）はtitleに"World"をいれる
+//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+//			map: map,
+//			title: 'World' 
+//		});
+//	   }
+	   
 	   
 }
 
