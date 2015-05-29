@@ -28,26 +28,42 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); //表示する場所
   
   for (i=0; i<myLatlngArr.length; i=i+1) { //iはindexの略。数字は0から数える。myLatlngArr.lengthは配列の長さ
-      if(i<2){ //== 値が等しい、=== 値も型(数字か文字列か)も等しい、>= 以上、<= 以下、!= notイコール
-          var marker = new google.maps.Marker({
-              position: myLatlngArr[i],
-              map: map,
-              title: 'Hello'
-          });          
-      }
-      else if(i==2){
-          var marker = new google.maps.Marker({
-              position: myLatlngArr[i],
-              map: map,
-              title: 'Hello World'
-          }); 
-      }
-      else{
-          var marker = new google.maps.Marker({
-              position: myLatlngArr[i],
-              map: map,
-              title: 'World'
-          });   
+      switch (i){
+          case 0: //式i が0の場合
+            var marker = new google.maps.Marker({
+                position: myLatlngArr[i],
+                map: map,
+                title: 'レイキャヴィック'
+            });    
+          break; //命令終わり
+          case 1:
+            var marker = new google.maps.Marker({
+                position: myLatlngArr[i],
+                map: map,
+                title: '稚内'
+            }); 
+          break;
+          case 2:
+            var marker = new google.maps.Marker({
+                position: myLatlngArr[i],
+                map: map,
+                title: 'バンコク'
+            }); 
+          break;
+          case 3:
+            var marker = new google.maps.Marker({
+                position: myLatlngArr[i],
+                map: map,
+                title: '沖縄'
+            }); 
+          break;
+          case 4:
+            var marker = new google.maps.Marker({
+                position: myLatlngArr[i],
+                map: map,
+                title: 'バルセロナ'
+            }); 
+          break;
       }
   }
   
