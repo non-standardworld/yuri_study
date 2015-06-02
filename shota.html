@@ -34,14 +34,16 @@ function initialize() {
                 position: myLatlngArr[i],
                 map: map,
                 title: 'レイキャヴィック'
-            });    
+            }); 
+            google.maps.event.addListener(marker, 'click', toggleBounce);  //addListener → ユーザーの操作に応じて何かをする：markerがclickされたらtoggleBounceという関数を呼ぶ
           break; //命令終わり
           case 1:
             var marker = new google.maps.Marker({
                 position: myLatlngArr[i],
                 map: map,
                 title: '稚内'
-            }); 
+            });
+            google.maps.event.addListener(marker, 'click', toggleBounce); 
           break;
           case 2:
             var marker = new google.maps.Marker({
@@ -50,6 +52,7 @@ function initialize() {
                 title: 'バンコク'
             }); 
           break;
+          google.maps.event.addListener(marker, 'click', toggleBounce);
           case 3:
             var marker = new google.maps.Marker({
                 position: myLatlngArr[i],
@@ -57,6 +60,7 @@ function initialize() {
                 title: '沖縄'
             }); 
           break;
+          google.maps.event.addListener(marker, 'click', toggleBounce);
           case 4:
             var marker = new google.maps.Marker({
                 position: myLatlngArr[i],
@@ -64,8 +68,18 @@ function initialize() {
                 title: 'バルセロナ'
             }); 
           break;
+          google.maps.event.addListener(marker, 'click', toggleBounce);
       }
   }
+  
+  function toggleBounce() {
+    
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  } 
   
   //インフォ画面を出す
   var contentString = '<div id="content">'+
