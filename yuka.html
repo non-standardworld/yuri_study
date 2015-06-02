@@ -32,65 +32,74 @@ function initialize() {
   //myLatlngArr.length;で配列の数を取得　カウンターに使用するときは-1で
   
   for (i=0; i<myLatlngArr.length; i=i+1){ //for-loop
-		switch (i){
-		  case 値1:
+  
+  		/////////////　swich文
+
+		switch (i){ //インデックス値ごとに処理を変える
+		  case 0:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
 				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
 				  map: map,
 				  title: '1' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
-		  case 値2:
+		  case 1: //インデックスが1の場合の処理
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
 				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
 				  map: map,
 				  title: '2' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
-		  case 値3:
+		  case 2:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
 				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
 				  map: map,
 				  title: '3' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
-		  case 値4:
+		  case 3:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
 				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
 				  map: map,
 				  title: '4' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
-		  case 値5:
+		  case 4:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
 				  position: myLatlngArr[i],//配列をインデックスごとに呼び出す
 				  map: map,
 				  title: '5' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		}  
-  
-//   if(i < 2){ //2回目まではtitleに"Hello"をいれる
-//		var marker = new google.maps.Marker({ //マーカーを落とす関数
-//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-//			map: map,
-//			title: 'Hello' 
-//		});
-//	   }else if(i==2){ //2本目に"Hello World"
-//		var marker = new google.maps.Marker({ //マーカーを落とす関数
-//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-//			map: map,
-//			title: 'Hello World' 
-//		});
-//		   }
-//	   else{ //それ以外（3回目以降）はtitleに"World"をいれる
-//		var marker = new google.maps.Marker({ //マーカーを落とす関数
-//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
-//			map: map,
-//			title: 'World' 
-//		});
-//	   }
-	   
+		
+		/////////////　If else文
+		
+		//   if(i < 2){ //2回目まではtitleに"Hello"をいれる
+		//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+		//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+		//			map: map,
+		//			title: 'Hello' 
+		//		});
+		//	   }else if(i==2){ //2本目に"Hello World"
+		//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+		//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+		//			map: map,
+		//			title: 'Hello World' 
+		//		});
+		//		   }
+		//	   else{ //それ以外（3回目以降）はtitleに"World"をいれる
+		//		var marker = new google.maps.Marker({ //マーカーを落とす関数
+		//			position: myLatlngArr[i],//配列をインデックスごとに呼び出す
+		//			map: map,
+		//			title: 'World' 
+		//		});
+		//	   }
 	   
 }
 
@@ -142,6 +151,15 @@ function initialize() {
 //  });
 	  
 }//initializeの終わり
+
+function toggleBounce() {
+
+  if (marker.getAnimation() != null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
 google.maps.event.addDomListener(window, 'load', initialize); //イベントドリブン
 
