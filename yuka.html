@@ -42,6 +42,7 @@ function initialize() {
 				  map: map,
 				  title: '1' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		  case 1: //インデックスが1の場合の処理
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
@@ -49,6 +50,7 @@ function initialize() {
 				  map: map,
 				  title: '2' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		  case 2:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
@@ -56,6 +58,7 @@ function initialize() {
 				  map: map,
 				  title: '3' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		  case 3:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
@@ -63,6 +66,7 @@ function initialize() {
 				  map: map,
 				  title: '4' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		  case 4:
 				var marker = new google.maps.Marker({ //マーカーを落とす関数
@@ -70,6 +74,7 @@ function initialize() {
 				  map: map,
 				  title: '5' 
 			  });
+			  google.maps.event.addListener(marker, 'click', toggleBounce);
 		  break;
 		}  
 		
@@ -146,6 +151,15 @@ function initialize() {
 //  });
 	  
 }//initializeの終わり
+
+function toggleBounce() {
+
+  if (marker.getAnimation() != null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
 google.maps.event.addDomListener(window, 'load', initialize); //イベントドリブン
 
